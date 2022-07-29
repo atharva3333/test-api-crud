@@ -49,7 +49,7 @@ const Create = () => {
   <div className="mb-3">
   <label for="formFile" className="form-label">Upload Images</label>
   <input className="form-control" type="file" onChange={(e)=> setImage(URL.createObjectURL(e.target.files[0]))}/>
-  <img src={image}/>
+  <img src={image} alt='image cannot view'/>
 </div>
   
   <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
