@@ -58,7 +58,7 @@ const Read = () => {
                                             <th scope="row">{eachData.id}</th>
                                             <td>{eachData.name}</td>
                                             <td>{eachData.email}</td>
-                                            <td><img src={eachData.image} alt="image not selected" /></td>
+                                            <td><img src={eachData.image} alt="not-selected" /></td>
                                             <td><button className='btn-light'>Edit</button></td>
                                             <td><button className='btn-danger' onClick={()=>handleDelete(eachData.id)}>Delete</button></td>
 
