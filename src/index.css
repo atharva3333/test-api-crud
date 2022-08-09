@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn-edit{
+  padding: 2rem 1rem;
+  background-color: blue;
+  text-align: center;
+  
+}
+
+button{
+  margin-left: 5rem;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}

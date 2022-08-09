@@ -8,7 +8,7 @@ const Create = () => {
 
     const [name,setName]=useState('');
     const [email,setEmail]=useState('');
-    const [image,setImage]=useState('');
+    
     
     const history = useNavigate();
     
@@ -17,12 +17,13 @@ const Create = () => {
     const handleSubmit=(e)=>{
         e.preventDefault();
           console.log("Clicked")
+          
         axios.post(
             'https://62e39bc63c89b95396cbfcf6.mockapi.io/crud-op',
              {
                 name:name,
                 email:email,
-                image:image,
+                
                 header
             })
 
@@ -46,11 +47,7 @@ const Create = () => {
     <input type="email" className="form-control" onChange={(e)=> setEmail(e.target.value)} />
   </div>
 
-  <div className="mb-3">
-  <label for="formFile" className="form-label">Upload Images</label>
-  <input className="form-control" type="file" onChange={(e)=> setImage(URL.createObjectURL(e.target.files[0]))}/>
-  <img src={image} alt='cannot view'/>
-</div>
+  
   
   <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
 </form>

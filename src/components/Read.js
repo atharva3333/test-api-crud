@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 const Read = () => {
 
@@ -23,6 +24,13 @@ const Read = () => {
         });
     }
 
+    const setToLocalStorage =(id,name,email)=>{
+        localStorage.setItem("id",id)
+        localStorage.setItem("name",name)
+        localStorage.setItem("email",email)
+    }
+
+
     useEffect(() => {
         
         getData();
@@ -42,7 +50,7 @@ const Read = () => {
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Image</th>
+                            
                             <th scope="col">Edit Data</th>
                             <th scope="col">Delete Data</th>
 
@@ -58,21 +66,31 @@ const Read = () => {
                                             <th scope="row">{eachData.id}</th>
                                             <td>{eachData.name}</td>
                                             <td>{eachData.email}</td>
-                                            <td><img src={eachData.image} alt="not-selected" /></td>
-                                            <td><button className='btn-light'>Edit</button></td>
-                                            <td><button className='btn-danger' onClick={()=>handleDelete(eachData.id)}>Delete</button></td>
+                                            
+                                            <td>
+                                            <Link to ="/update">
+                                            <button className=' btn btn-success' onClick={()=> setToLocalStorage(eachData.id,eachData.name,eachData.email)}>Edit</button>
+                                            </Link>
+                                            
+                                            </td>
+                                            <td><button className='btn btn-danger' onClick={()=>handleDelete(eachData.id)}>Delete</button></td>
 
 
                                         </tr>
 
 
                                     </tbody>
+
+                                    
                                 </>
                             )
                         })
                     }
                 </table>
             </div>
+
+
+            <button className='btn btn-dark align-middle'><a className='.text-white' href='/'>Add User</a></button>
 
         </>
     )
